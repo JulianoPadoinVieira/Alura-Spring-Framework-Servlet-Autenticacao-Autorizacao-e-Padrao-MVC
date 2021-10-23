@@ -3,7 +3,6 @@ package br.com.tresemeia.gerenciador.acao;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.tresemeia.gerenciador.modelo.Banco;
 import br.com.tresemeia.gerenciador.modelo.Empresa;
 
-public class ListaEmpresas {
+public class ListaEmpresas implements Acao{
 	
 	//Metodo para listar as empresas, não é um servlet
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("Listando empresas");
 		
@@ -23,8 +22,7 @@ public class ListaEmpresas {
 		
 		request.setAttribute("empresas", lista);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
-		rd.forward(request, response);
+		return "forward:listaEmpresas.jsp";
 		
 	}
 

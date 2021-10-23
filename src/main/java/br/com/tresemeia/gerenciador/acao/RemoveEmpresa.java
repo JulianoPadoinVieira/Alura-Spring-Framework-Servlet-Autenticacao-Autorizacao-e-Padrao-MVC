@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.tresemeia.gerenciador.modelo.Banco;
 
-public class RemoveEmpresa {
+public class RemoveEmpresa implements Acao  {
 	
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("Ação removendo empresa");
 		
@@ -18,10 +18,9 @@ public class RemoveEmpresa {
 		Integer id = Integer.valueOf(paramId);
 		
 		Banco banco = new Banco();
-		banco.removeEmpresa(id);
+		banco.removeEmpresa(id);	
 		
-		response.sendRedirect("entrada?acao=ListaEmpresas");
-		
+		return "redirect:entrada?acao=ListaEmpresas";
 		
 	}
 }
