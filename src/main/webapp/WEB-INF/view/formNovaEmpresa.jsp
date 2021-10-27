@@ -7,6 +7,9 @@
 	<title>Nova empresa</title>
 </head>
 <body>
+
+    <c:import url="logout-parcial.jsp" />
+
 	<!-- method="post" esconde os parametros dentro do escopo da requisição
 	method="get" envia os parametros através da url, sendo menos seguro -->
 	<form action="${linkEntradaServlet}" method="post">
