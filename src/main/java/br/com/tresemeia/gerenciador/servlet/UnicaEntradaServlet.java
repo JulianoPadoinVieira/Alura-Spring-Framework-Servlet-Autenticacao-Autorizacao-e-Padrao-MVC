@@ -21,7 +21,7 @@ import br.com.tresemeia.gerenciador.acao.RemoveEmpresa;
 /**
  * Servlet implementation class UnicaEntradaServlet
  */
-@WebServlet("/entrada")
+/* @WebServlet("/entrada") */
 public class UnicaEntradaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -29,16 +29,6 @@ public class UnicaEntradaServlet extends HttpServlet {
 
 		//Lê o parâmetro que define a ação
 		String paramAcao = request.getParameter("acao");
-				
-		HttpSession sessao = request.getSession();
-		boolean usuarioNaoLogado = (sessao.getAttribute("usuarioLogado") == null);
-		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
-		
-		if(ehUmaAcaoProtegida && usuarioNaoLogado ) {
-			response.sendRedirect("entrada?acao=LoginForm");
-			//Para sair, não entrar no try abaixo
-			return;
-		}
 		
 		String nomeDaClasse = "br.com.tresemeia.gerenciador.acao." + paramAcao;
 		

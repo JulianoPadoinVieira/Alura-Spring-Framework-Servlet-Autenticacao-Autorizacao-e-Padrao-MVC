@@ -15,4 +15,24 @@
   	<url-pattern>/ola</url-pattern>
   </servlet-mapping>
   
+  <filter>
+    <filter-name>MF</filter-name>
+    <filter-class>br.com.tresemeia.gerenciador.servlet.MonitoramentoFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>MF</filter-name>
+    <url-pattern>/entrada</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>AF</filter-name>
+    <filter-class>br.com.tresemeia.gerenciador.servlet.AutorizacaoFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>AF</filter-name>
+    <url-pattern>/entrada</url-pattern>
+  </filter-mapping>
+  
 </web-app>
